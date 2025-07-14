@@ -1,0 +1,23 @@
+/* Custom styles to extend Bootstrap */
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  flex: 1;
+}
+
+/* Custom button hover effects */
+.btn-primary:hover {
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+/* Custom card hover effects */
+.card:hover {
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
