@@ -1,25 +1,33 @@
 import React, { useState } from 'react';
-import { Form, FormControl, Button } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
+import { FaSearch } from 'react-icons/fa';
+import '../styles/SearchBar.css';
 
 function SearchBar({ onSearch }) {
   const [query, setQuery] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (onSearch) onSearch(query);
+    if (query.trim() && onSearch) {
+      onSearch(query.trim());
+    }
   };
 
   return (
-    <Form className="d-flex ms-3" onSubmit={handleSubmit} role="search">
-      <FormControl
+    <Form className="search-form" onSubmit={handleSubmit} role="search">
+      <Form.Control
         type="search"
-        placeholder="Search..."
-        className="me-2"
+        placeholder="Search escorts..."
+        className="search-input"
         aria-label="Search"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
+        autoComplete="off"
       />
-      <Button variant="outline-light" type="submit">Search</Button>
+      <FaSearch className="search-icon" />
+      <button className="search-button" type="submit">
+        Search
+      </button>
     </Form>
   );
 }

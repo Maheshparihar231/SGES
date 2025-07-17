@@ -1,55 +1,65 @@
 import React from 'react';
-import { Container, Carousel } from 'react-bootstrap';
+import { Carousel } from 'react-bootstrap';
+import { motion } from 'framer-motion';
 import img1 from '../assets/images/1.jpg';
 import img2 from '../assets/images/2.jpg';
 import img3 from '../assets/images/3.jpg';
+import '../styles/Home.css';
 
 const Home = () => {
-// Import images from assets
+    const carouselItems = [
+        {
+            image: img1,
+            title: "Discreet Connections",
+            description: "Verified listings with full confidentiality.",
+            alt: "First slide"
+        },
+        {
+            image: img2,
+            title: "Nearby Listings",
+            description: "Discover real companions in your locality.",
+            alt: "Second slide"
+        },
+        {
+            image: img3,
+            title: "Safe & Trusted",
+            description: "We prioritize your privacy and comfort.",
+            alt: "Third slide"
+        }
+    ];
 
-return (
-    <div className="text-light p-0 m-0" style={{ width: '100vw', position: 'relative', left: '50%', right: '50%', transform: 'translateX(-50%)'}}>
-        {/* Full-width Carousel */}
-        <Carousel fade interval={2000} className="w-100">
-            <Carousel.Item>
-                <img
-                    className="d-block w-100"
-                    src={img1}
-                    alt="First slide"
-                    style={{ objectFit: 'cover', width: '100vw', height: '35vw', minHeight: 200, maxHeight: 600 }}
-                />
-                <Carousel.Caption className=" bg-opacity-50 p-3 rounded">
-                    <h5>Discreet Connections</h5>
-                    <p>Verified listings with full confidentiality.</p>
-                </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-                <img
-                    className="d-block w-100"
-                    src={img2}
-                    alt="Second slide"
-                    style={{ objectFit: 'cover', width: '100vw', height: '35vw', minHeight: 200, maxHeight: 600 }}
-                />
-                <Carousel.Caption className=" bg-opacity-50 p-3 rounded">
-                    <h5>Nearby Listings</h5>
-                    <p>Discover real companions in your locality.</p>
-                </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-                <img
-                    className="d-block w-100"
-                    src={img3}
-                    alt="Third slide"
-                    style={{ objectFit: 'cover', width: '100vw', height: '35vw', minHeight: 200, maxHeight: 600 }}
-                />
-                <Carousel.Caption className=" bg-opacity-50 p-3 rounded">
-                    <h5>Safe & Trusted</h5>
-                    <p>We prioritize your privacy and comfort.</p>
-                </Carousel.Caption>
-            </Carousel.Item>
-        </Carousel>
-    </div>
-);
+    return (
+        <motion.div 
+            className="home-container"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+        >
+            <div className="carousel-wrapper">
+                <Carousel 
+                    fade 
+                    interval={3000} 
+                    className="custom-carousel"
+                    indicators={true}
+                    pause="hover"
+                >
+                    {carouselItems.map((item, index) => (
+                        <Carousel.Item key={index}>
+                            <img
+                                className="carousel-img"
+                                src={item.image}
+                                alt={item.alt}
+                            />
+                            <Carousel.Caption>
+                                <h5>{item.title}</h5>
+                                <p>{item.description}</p>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+                    ))}
+                </Carousel>
+            </div>
+        </motion.div>
+    );
 };
 
 export default Home;

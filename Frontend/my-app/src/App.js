@@ -1,6 +1,4 @@
-
 import './App.css';
-import { Container } from 'react-bootstrap';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
@@ -17,7 +15,7 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        <Container className="flex-grow-1">
+        <main className="flex-grow-1">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -26,7 +24,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
           </Routes>
-        </Container>
+        </main>
         <Footer />
       </div>
     </Router>

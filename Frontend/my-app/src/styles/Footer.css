@@ -1,0 +1,229 @@
+.modern-footer {
+    background: linear-gradient(to top, rgba(10, 10, 10, 0.95), rgba(20, 20, 20, 0.95)) !important;
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 4rem 0 2rem !important;
+    flex: 1;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+}
+
+.footer-section {
+    padding: 0 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-brand {
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #ff4757, #ff6b81);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    line-height: 1.2;
+}
+
+.footer-description {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    max-width: 90%;
+}
+
+.footer-tagline {
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+.footer-section-title {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.footer-section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(45deg, #ff4757, #ff6b81);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.footer-section-title:hover::after {
+    width: 70%;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.footer-link {
+    color: rgba(255, 255, 255, 0.7) !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.95rem;
+    padding: 0.3rem 0;
+}
+
+.footer-link svg {
+    margin-right: 8px;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+}
+
+.footer-link:hover {
+    color: #ff4757 !important;
+    transform: translateX(5px);
+}
+
+.footer-link:hover svg {
+    color: #ff4757;
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+.footer-divider {
+    border-color: rgba(255, 255, 255, 0.1);
+    margin: 2rem auto;
+    width: 100%;
+    max-width: 1140px;
+}
+
+.footer-bottom {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+    padding: 1rem 0;
+    width: 100%;
+    text-align: center;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    align-items: center;
+}
+
+.social-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.social-icon:hover {
+    background: linear-gradient(45deg, #ff4757, #ff6b81);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .footer-section {
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .footer-description {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .modern-footer {
+        padding: 3rem 0 1.5rem !important;
+    }
+
+    .footer-section {
+        margin-bottom: 2.5rem;
+        padding: 0 1rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-section:last-child {
+        margin-bottom: 1rem;
+    }
+
+    .footer-description,
+    .footer-tagline {
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .footer-section-title {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .footer-section-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer-links {
+        align-items: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+        margin-top: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .modern-footer {
+        padding: 2.5rem 0 1rem !important;
+    }
+
+    .footer-brand {
+        font-size: 1.8rem;
+    }
+
+    .footer-section {
+        padding: 0 0.75rem;
+    }
+
+    .footer-description,
+    .footer-tagline {
+        font-size: 0.9rem;
+    }
+
+    .footer-bottom {
+        font-size: 0.8rem;
+    }
+}

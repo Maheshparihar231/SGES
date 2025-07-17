@@ -1,0 +1,109 @@
+.main-header {
+  background: rgba(20, 22, 26, 0.95) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1rem 0 !important;
+  opacity: 0.95;
+}
+
+.brand-logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #ff4757, #ff6b81);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  text-shadow: 2px 2px 4px rgba(255, 71, 87, 0.3);
+}
+
+.brand-logo:hover {
+  transform: scale(1.05);
+  text-shadow: 2px 2px 8px rgba(255, 71, 87, 0.5);
+}
+
+.nav-link {
+  position: relative;
+  padding: 0.5rem 1rem !important;
+  margin: 0 0.25rem;
+  font-weight: 500;
+  transition: all 0.3s ease !important;
+  border-radius: 8px;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
+}
+
+.nav-link.active {
+  background: rgba(255, 71, 87, 0.1);
+  color: #ff4757 !important;
+  font-weight: 600;
+}
+
+.auth-button {
+  padding: 0.5rem 1.5rem !important;
+  border-radius: 25px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease !important;
+  border: none !important;
+}
+
+.login-btn {
+  background: linear-gradient(45deg, #ff4757, #ff6b81) !important;
+  box-shadow: 0 4px 15px rgba(255, 71, 87, 0.3);
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 71, 87, 0.4);
+}
+
+.search-container {
+  position: relative;
+  margin-right: 1rem;
+}
+
+/* Mobile menu styles */
+.navbar-toggler {
+  border: none !important;
+  padding: 0.5rem !important;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none !important;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 71, 87, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background: rgba(20, 22, 26, 0.98);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .nav-link {
+    margin: 0.5rem 0;
+  }
+
+  .search-container {
+    margin: 1rem 0;
+    width: 100%;
+  }
+
+  .auth-buttons {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+  }
+}

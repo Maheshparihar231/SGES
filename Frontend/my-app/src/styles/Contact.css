@@ -1,0 +1,164 @@
+.contact-bg {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  min-height: 100vh;
+  padding: 3rem 0;
+}
+
+.contact-header h2 {
+  background: linear-gradient(45deg, #ff4757, #ff6b81);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 3.5rem;
+  letter-spacing: -1px;
+  position: relative;
+}
+
+.contact-header h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(45deg, #ff4757, #ff6b81);
+  border-radius: 2px;
+}
+
+.contact-card, .security-card {
+  background: rgba(20, 22, 26, 0.7) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-card:hover, .security-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(255, 71, 87, 0.2);
+  border-color: rgba(255, 71, 87, 0.2) !important;
+}
+
+.form-control {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 2px solid rgba(255, 255, 255, 0.05) !important;
+  border-radius: 12px !important;
+  color: #fff !important;
+  padding: 1.2rem 1rem 1.2rem 3rem !important;
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-control:focus {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: #ff4757 !important;
+  box-shadow: 0 0 0 4px rgba(255, 71, 87, 0.15) !important;
+  transform: translateY(-2px);
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+  font-weight: 300;
+}
+
+.form-control.focused {
+  transform: translateY(-2px);
+}
+
+textarea.form-control {
+  min-height: 120px;
+  padding: 1rem !important;
+  resize: none;
+}
+
+.submit-btn {
+  background: linear-gradient(45deg, #ff4757, #ff6b81) !important;
+  border: none !important;
+  border-radius: 12px !important;
+  padding: 1.2rem !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 71, 87, 0.4);
+}
+
+.submit-btn:active {
+  transform: scale(0.98);
+}
+
+.security-icon {
+  font-size: 4rem;
+  color: #ff4757;
+  filter: drop-shadow(0 4px 8px rgba(255, 71, 87, 0.4));
+  transition: all 0.3s ease;
+}
+
+.security-features p {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.security-features p:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(5px);
+  border-color: rgba(255, 71, 87, 0.2);
+}
+
+.security-features .highlight-text {
+  color: #ff4757;
+  transition: transform 0.3s ease;
+}
+
+.security-features p:hover .highlight-text {
+  transform: scale(1.2);
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+
+/* Form icons styling */
+.position-absolute.text-light {
+  color: rgba(255, 71, 87, 0.7) !important;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus + .position-absolute.text-light,
+.form-control.focused + .position-absolute.text-light {
+  color: #ff4757 !important;
+  transform: scale(1.1);
+}
+
+/* Card hover effects */
+.contact-card:hover .highlight-text,
+.security-card:hover .highlight-text {
+  text-shadow: 0 0 20px rgba(255, 71, 87, 0.4);
+}

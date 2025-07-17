@@ -1,5 +1,37 @@
+/* Reset and base styles */
+body {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  min-height: 100vh;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: transparent;
+}
+
+.flex-grow-1 {
+  flex: 1;
+}
+
+/* Remove container margins for full-width content */
+.container, .container-fluid {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  max-width: 100% !important;
+}
+
+/* Remove any default padding/margins from main content areas */
+.py-5 {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 .App-logo {
