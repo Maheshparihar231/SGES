@@ -1,7 +1,8 @@
 .about-bg {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
   min-height: 100vh;
   padding: 3rem 0;
+  margin-left: 5vw;
+  margin-right: 5vw;
 }
 
 .about-title {
@@ -76,49 +77,123 @@
 }
 
 .features-table {
-  background: rgba(20, 22, 26, 0.7);
-  backdrop-filter: blur(20px);
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(20, 22, 26, 0.95) !important;
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
   overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 71, 87, 0.1);
+}
+
+.features-table .table {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9) !important;
+  background: transparent;
+}
+
+.features-table thead {
+  background: rgba(255, 71, 87, 0.15);
+  border-bottom: 2px solid rgba(255, 71, 87, 0.2);
 }
 
 .features-table th {
-  background: rgba(255, 71, 87, 0.1);
-  color: #ff4757;
+  color: #ff4757 !important;
+  font-size: 1.1rem;
   font-weight: 600;
-  padding: 1.2rem;
+  padding: 1.2rem 1.5rem;
   border: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: rgba(20, 22, 26, 0.8);
 }
 
 .features-table td {
-  color: #fff;
-  padding: 1.2rem;
-  border-color: rgba(255, 255, 255, 0.05);
+  padding: 1.2rem 1.5rem;
+  border-color: rgba(255, 71, 87, 0.1);
+  vertical-align: middle;
+  background: rgba(20, 22, 26, 0.8);
 }
 
-.features-table tr {
+.features-table tbody tr {
   transition: all 0.3s ease;
+  border-bottom: 1px solid rgba(255, 71, 87, 0.1);
 }
 
-.features-table tr:hover {
-  background: rgba(255, 255, 255, 0.03);
+.features-table tbody tr:hover {
+  background: rgba(255, 71, 87, 0.05) !important;
+  transform: translateX(5px);
 }
 
-.highlight-box {
-  background: linear-gradient(135deg, rgba(220, 53, 69, 0.1), rgba(255, 107, 129, 0.1));
-  border: 1px solid rgba(255, 71, 87, 0.2);
-  border-radius: 16px;
-  padding: 2rem;
-  color: #fff;
-  text-align: center;
-  backdrop-filter: blur(20px);
-  transition: all 0.3s ease;
+.features-table td strong {
+  color: #ff6b81;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  text-shadow: 0 0 10px rgba(255, 71, 87, 0.3);
 }
 
-.highlight-box:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(255, 71, 87, 0.2);
+.features-table td:first-child {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.features-table .text-danger {
+  font-size: 1.2rem;
+  color: #ff4757 !important;
+  filter: drop-shadow(0 0 5px rgba(255, 71, 87, 0.4));
+}
+
+.features-table tbody td:last-child {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+}
+
+/* Animation for table rows */
+.features-table tbody tr {
+  opacity: 0;
+  animation: fadeInRight 0.5s ease forwards;
+  background: rgba(20, 22, 26, 0.8);
+}
+
+.features-table tbody tr:nth-child(1) { animation-delay: 0.2s; }
+.features-table tbody tr:nth-child(2) { animation-delay: 0.4s; }
+.features-table tbody tr:nth-child(3) { animation-delay: 0.6s; }
+.features-table tbody tr:nth-child(4) { animation-delay: 0.8s; }
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .features-table {
+    margin: 0 -15px;
+    border-radius: 0;
+  }
+
+  .features-table th,
+  .features-table td {
+    padding: 1rem;
+  }
+
+  .features-table td:first-child {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .features-table .text-danger {
+    font-size: 1rem;
+  }
 }
 
 .fade-in-up {

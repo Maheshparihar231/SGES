@@ -8,26 +8,31 @@ function SearchBar({ onSearch }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (query.trim() && onSearch) {
-      onSearch(query.trim());
-    }
+    const trimmed = query.trim();
+    if (trimmed && onSearch) onSearch(trimmed);
   };
 
   return (
     <Form className="search-form" onSubmit={handleSubmit} role="search">
-      <Form.Control
-        type="search"
-        placeholder="Search escorts..."
-        className="search-input"
-        aria-label="Search"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        autoComplete="off"
-      />
-      <FaSearch className="search-icon" />
-      <button className="search-button" type="submit">
-        Search
-      </button>
+      <div style={{ position: 'relative', width: '100%' }}>
+        <Form.Control
+          type="search"
+          placeholder="Search escorts..."
+          className="search-input"
+          aria-label="Search escorts"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          autoComplete="off"
+        />
+        <FaSearch className="search-icon" aria-hidden="true" />
+        <button
+          type="submit"
+          className="search-button"
+          aria-label="Submit your search query"
+        >
+          Search
+        </button>
+      </div>
     </Form>
   );
 }

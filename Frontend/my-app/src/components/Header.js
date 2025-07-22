@@ -1,12 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import SearchBar from './SearchBar';
 import '../styles/Header.css';
 
 function Header() {
     const navigate = useNavigate();
+    const location = useLocation();
     const [scrolled, setScrolled] = useState(false);
+
+    // Navigation items
+    const navItems = [
+        { path: '/', label: 'Home' },
+        { path: '/services', label: 'Escorts' },
+        { path: '/about', label: 'About Us' },
+        { path: '/contact', label: 'Contact' },
+        { path: '/blog', label: 'Blog' }
+    ];
+
+    const authItems = [
+        { path: '/login', label: 'Login' },
+        { path: '/signup', label: 'Sign Up' }
+    ];
 
     useEffect(() => {
         const handleScroll = () => {
@@ -21,9 +37,8 @@ function Header() {
     }, [scrolled]);
 
     const handleSearch = (query) => {
-        // You can implement navigation or search logic here
-        // For now, just alert or log
-        alert(`Search for: ${query}`);
+        // Implement search functionality
+        console.log(`Searching for: ${query}`);
     };
 
     return (
@@ -33,61 +48,74 @@ function Header() {
             fixed="top" 
             className={`main-header ${scrolled ? 'shadow-lg' : ''}`}
         >
-            <Container fluid="lg">
-                {/* Brand */}
-                <NavLink to="/" className="brand-logo">
-                    RandiRadar
+            <Container fluid="lg" className="d-flex align-items-center justify-content-between">
+                {/* Brand Logo */}
+                <NavLink 
+                    to="/" 
+                    className="brand-logo text-decoration-none"
+                >
+                    <motion.span
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        RandiRadar
+                    </motion.span>
                 </NavLink>
 
                 {/* Mobile Toggle */}
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Toggle 
+                    aria-controls="basic-navbar-nav"
+                    className="ms-2"
+                />
 
-                {/* Navbar Collapse */}
+                {/* Navbar Content */}
                 <Navbar.Collapse id="basic-navbar-nav">
-                    {/* Left Nav */}
-                    <Nav className="me-auto">
-                        <Nav.Link
-                            as={NavLink}
-                            to="/"
-                            end
-                            className="nav-link"
-                        >
-                            Home
-                        </Nav.Link>
-                        <Nav.Link
-                            as={NavLink}
-                            to="/services"
-                            className="nav-link"
-                        >
-                            Browse
-                        </Nav.Link>
-                        <Nav.Link
-                            as={NavLink}
-                            to="/about"
-                            className="nav-link"
-                        >
-                            About
-                        </Nav.Link>
-                        <Nav.Link
-                            as={NavLink}
-                            to="/contact"
-                            className="nav-link"
-                        >
-                            Contact
-                        </Nav.Link>
+                    {/* Navigation Links */}
+                    <Nav className="mx-auto">
+                        {navItems.map((item, index) => (
+                            <motion.div
+                                key={item.path}
+                                initial={{ opacity: 0, y: -20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.3, delay: index * 0.1 }}
+                            >
+                                <NavLink
+                                    to={item.path}
+                                    className={({ isActive }) =>
+                                        `nav-link px-3 ${isActive ? 'active' : ''}`
+                                    }
+                                >
+                                    {item.label}
+                                </NavLink>
+                            </motion.div>
+                        ))}
                     </Nav>
 
-                    {/* Right: Search and Auth Links */}
-                    <div className="d-flex align-items-center gap-3">
-                        <div className="search-container">
-                            <SearchBar onSearch={handleSearch} />
+                    {/* Search Bar */}
+                    <div className="d-flex align-items-center">
+                        <SearchBar onSearch={handleSearch} />
+                        
+                        {/* Auth Buttons */}
+                        <div className="auth-buttons ms-3 d-flex gap-2">
+                            {authItems.map((item, index) => (
+                                <motion.div
+                                    key={item.path}
+                                    initial={{ opacity: 0, x: 20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                                >
+                                    <NavLink
+                                        to={item.path}
+                                        className={({ isActive }) =>
+                                            `btn ${isActive ? 'btn-primary' : 'btn-outline-light'}`
+                                        }
+                                    >
+                                        {item.label}
+                                    </NavLink>
+                                </motion.div>
+                            ))}
                         </div>
-                        <NavLink 
-                            to="/login" 
-                            className="auth-button login-btn"
-                        >
-                            Login
-                        </NavLink>
                     </div>
                 </Navbar.Collapse>
             </Container>

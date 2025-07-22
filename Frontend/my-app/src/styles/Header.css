@@ -2,10 +2,22 @@
   background: rgba(20, 22, 26, 0.95) !important;
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 1rem 0 !important;
-  opacity: 0.95;
+  padding: 0.75rem 0 !important;
+  transition: all 0.3s ease;
 }
 
+.main-header.shadow-lg {
+  background: rgba(18, 20, 24, 0.98) !important;
+  border-bottom: 1px solid rgba(255, 71, 87, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Container adjustments */
+.main-header .container-lg {
+  padding: 0 1.5rem;
+}
+
+/* Brand Logo */
 .brand-logo {
   font-size: 1.8rem;
   font-weight: 700;
@@ -16,6 +28,9 @@
   text-decoration: none;
   transition: all 0.3s ease;
   text-shadow: 2px 2px 4px rgba(255, 71, 87, 0.3);
+  margin-right: 2rem;
+  padding: 0.5rem 0;
+  white-space: nowrap;
 }
 
 .brand-logo:hover {
@@ -23,51 +38,93 @@
   text-shadow: 2px 2px 8px rgba(255, 71, 87, 0.5);
 }
 
+/* Navigation Links */
+.navbar-nav {
+  gap: 0.5rem;
+  margin: 0 1rem;
+  align-items: center;
+}
+
 .nav-link {
   position: relative;
-  padding: 0.5rem 1rem !important;
+  padding: 0.6rem 1rem !important;
   margin: 0 0.25rem;
   font-weight: 500;
-  transition: all 0.3s ease !important;
-  border-radius: 8px;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85) !important;
+  transition: all 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(45deg, #ff4757, #ff6b81);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
 }
 
 .nav-link:hover {
-  background: rgba(255, 255, 255, 0.05);
-  transform: translateY(-2px);
+  color: #fff !important;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 80%;
 }
 
 .nav-link.active {
-  background: rgba(255, 71, 87, 0.1);
-  color: #ff4757 !important;
+  color: #fff !important;
   font-weight: 600;
 }
 
-.auth-button {
-  padding: 0.5rem 1.5rem !important;
-  border-radius: 25px !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.5px;
-  transition: all 0.3s ease !important;
-  border: none !important;
+/* Right Side Elements */
+.right-nav-section {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
 }
 
-.login-btn {
-  background: linear-gradient(45deg, #ff4757, #ff6b81) !important;
-  box-shadow: 0 4px 15px rgba(255, 71, 87, 0.3);
+/* Auth Buttons */
+.auth-buttons .btn {
+    padding: 0.5rem 1.5rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border-radius: 25px;
 }
 
-.login-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(255, 71, 87, 0.4);
+.auth-buttons .btn-outline-light {
+    border-width: 2px;
 }
 
+.auth-buttons .btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+}
+
+.auth-buttons .btn-primary {
+    background: linear-gradient(45deg, #ff4757, #ff6b81);
+    border: none;
+    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.3);
+}
+
+.auth-buttons .btn-primary:hover {
+    background: linear-gradient(45deg, #ff6b81, #ff4757);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(255, 71, 87, 0.4);
+}
+
+/* Search Container */
 .search-container {
+  margin-left: 1rem;
   position: relative;
-  margin-right: 1rem;
 }
 
-/* Mobile menu styles */
+/* Mobile Adjustments */
 .navbar-toggler {
   border: none !important;
   padding: 0.5rem !important;
@@ -81,29 +138,46 @@
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 71, 87, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
 }
 
+/* Responsive Design */
 @media (max-width: 991.98px) {
+  .main-header {
+    padding: 0.5rem 0 !important;
+  }
+
   .navbar-collapse {
     background: rgba(20, 22, 26, 0.98);
-    padding: 1rem;
-    border-radius: 0.5rem;
-    margin-top: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin: 1rem -1.5rem -0.75rem;
+    padding: 1rem 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .navbar-nav {
+    margin: 1rem 0;
   }
 
   .nav-link {
-    margin: 0.5rem 0;
+    padding: 0.8rem 1rem !important;
   }
 
   .search-container {
-    margin: 1rem 0;
+    margin: 1rem 0 0;
     width: 100%;
   }
 
-  .auth-buttons {
-    margin-top: 1rem;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
+  .auth-button {
     width: 100%;
+    text-align: center;
+  }
+}
+
+/* Animation for navbar items */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

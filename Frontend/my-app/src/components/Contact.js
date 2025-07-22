@@ -44,35 +44,33 @@ const Contact = () => {
                 <Form onSubmit={handleSubmit}>
                   <Form.Group className="mb-4">
                     <div className="position-relative">
-                      <FaUser className="position-absolute text-light" 
-                        style={{ top: '18px', left: '15px', zIndex: 2 }} />
                       <Form.Control 
                         type="text"
                         placeholder="Your Name"
-                        className={`ps-5 ${focused === 'name' ? 'focused' : ''}`}
+                        className={`${focused === 'name' ? 'focused' : ''}`}
                         value={formState.name}
                         onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                         onFocus={() => setFocused('name')}
                         onBlur={() => setFocused('')}
                         required
                       />
+                      <FaUser className="position-absolute" />
                     </div>
                   </Form.Group>
                   
                   <Form.Group className="mb-4">
                     <div className="position-relative">
-                      <FaEnvelope className="position-absolute text-light" 
-                        style={{ top: '18px', left: '15px', zIndex: 2 }} />
                       <Form.Control 
                         type="email"
                         placeholder="Email address"
-                        className={`ps-5 ${focused === 'email' ? 'focused' : ''}`}
+                        className={`${focused === 'email' ? 'focused' : ''}`}
                         value={formState.email}
                         onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                         onFocus={() => setFocused('email')}
                         onBlur={() => setFocused('')}
                         required
                       />
+                      <FaEnvelope className="position-absolute" />
                     </div>
                   </Form.Group>
 

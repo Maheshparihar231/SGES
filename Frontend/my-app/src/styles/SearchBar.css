@@ -1,6 +1,8 @@
 .search-form {
-    position: relative;
+    display: flex !important;
     min-width: 280px;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
 .search-input {
@@ -12,6 +14,7 @@
     font-size: 0.95rem;
     backdrop-filter: blur(5px);
     transition: all 0.3s ease !important;
+    align-items: center !important;
 }
 
 .search-input:focus {

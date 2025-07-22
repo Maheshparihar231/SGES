@@ -8,15 +8,18 @@ body {
 }
 
 .App {
-  text-align: center;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  background: transparent;
+  background-color: #141414;
 }
 
 .flex-grow-1 {
   flex: 1;
+  padding-top: 76px; /* This should match your header height */
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
 }
 
 /* Remove container margins for full-width content */
@@ -54,6 +57,11 @@ body {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 
 .App-link {
@@ -67,4 +75,33 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Ensure footer stays at bottom */
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Add smooth page transitions */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 300ms, transform 300ms;
 }

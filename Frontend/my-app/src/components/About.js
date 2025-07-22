@@ -1,11 +1,12 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { FaMapMarkerAlt, FaUserCheck, FaLock, FaClock, FaStar, FaComments, FaUserShield, FaThumbsUp } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 import '../styles/About.css';
 
 function About() {
     return (
-        <div className="about-bg">
+        <div className="about-bg py-5">
             <Container>
                 <div className="text-center mb-5 fade-in-up">
                     <h1 className="about-title">About RandiRadar</h1>
@@ -60,46 +61,52 @@ function About() {
                     </Col>
                 </Row>
 
-                <div className="features-table mb-5 fade-in-up delay-3">
+                <motion.div 
+                    className="features-table mb-5"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                >
                     <table className="table mb-0">
                         <thead>
                             <tr>
-                                <th>Feature</th>
-                                <th>What It Offers</th>
+                                <th>Premium Features</th>
+                                <th>Benefits</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>
-                                    <FaMapMarkerAlt className="text-danger me-2" />
+                                    <FaMapMarkerAlt className="text-danger" />
                                     <strong>Geo-Based Listings</strong>
                                 </td>
-                                <td>Search or auto-locate services near your current location</td>
+                                <td>Instantly discover and connect with nearby services tailored to your location preferences</td>
                             </tr>
                             <tr>
                                 <td>
-                                    <FaUserShield className="text-danger me-2" />
+                                    <FaUserShield className="text-danger" />
                                     <strong>Profile Control</strong>
                                 </td>
-                                <td>Providers can manage availability, rates, and details freely</td>
+                                <td>Complete autonomy over your profile with real-time updates for availability and services</td>
                             </tr>
                             <tr>
                                 <td>
-                                    <FaComments className="text-danger me-2" />
+                                    <FaComments className="text-danger" />
                                     <strong>Secure Messaging</strong>
                                 </td>
-                                <td>In-app chat ensures confidentiality and safety</td>
+                                <td>End-to-end encrypted chat system ensuring your conversations remain private and secure</td>
                             </tr>
                             <tr>
                                 <td>
-                                    <FaThumbsUp className="text-danger me-2" />
+                                    <FaThumbsUp className="text-danger" />
                                     <strong>User Reviews</strong>
                                 </td>
-                                <td>Helps ensure quality and builds trust within the community</td>
+                                <td>Transparent feedback system fostering trust and quality service in our community</td>
                             </tr>
                         </tbody>
                     </table>
-                </div>
+                </motion.div>
 
                 <div className="highlight-box fade-in-up delay-3">
                     <h4 className="text-danger mb-3">More than just a listing site</h4>
