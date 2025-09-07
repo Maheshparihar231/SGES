@@ -5,10 +5,13 @@
 }
 
 .escort-card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+  background: rgba(28, 30, 34, 0.95);
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .escort-card:hover {
@@ -19,14 +22,16 @@
 .card-img-wrapper {
   position: relative;
   overflow: hidden;
+  border-radius: 10px 10px 0 0;
   height: 250px;
+  width: 100%;
 }
 
 .card-hover-zoom {
+  transition: transform 0.3s ease;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
 }
 
 .escort-card:hover .card-hover-zoom {
@@ -66,22 +71,336 @@
 }
 
 .contact-btn {
-  background: #dc3545;
-  color: white;
+  background: linear-gradient(45deg, #ff4757, #ff6b81);
   border: none;
-  padding: 8px 16px;
-  border-radius: 25px;
-  font-weight: 600;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-weight: 500;
   transition: all 0.3s ease;
+  font-size: 0.85rem;
+  white-space: normal;
+  text-align: center;
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
 }
 
 .contact-btn:hover {
-  background: #c82333;
-  transform: scale(1.05);
+  background: linear-gradient(45deg, #ff6b81, #ff4757);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 71, 87, 0.3);
+}
+
+.view-profile-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-size: 0.85rem;
+  white-space: normal;
+  text-align: center;
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
+}
+
+.view-profile-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .badge {
   font-size: 0.8rem;
   padding: 0.5em 1em;
   border-radius: 20px;
+}
+
+/* Filter Sidebar */
+.filters-sidebar {
+  background: rgba(18, 20, 24, 0.95);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.filter-title {
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(255, 71, 87, 0.3);
+  display: flex;
+  align-items: center;
+}
+
+.filter-group {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.filter-group:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.filter-group h5 {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filter-group h5::after {
+  content: attr(data-count);
+  font-size: 0.8rem;
+  background: rgba(255, 71, 87, 0.2);
+  color: #ff4757;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  display: none;
+}
+
+.filter-group.has-active h5::after {
+  display: block;
+}
+
+.filter-checkbox {
+  margin-bottom: 0.5rem;
+}
+
+.filter-checkbox label {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.filter-checkbox input:checked + label {
+  color: #ff4757;
+}
+
+.filter-checkbox:hover label {
+  color: #fff;
+}
+
+/* Sort Bar */
+.sort-bar {
+  background: transparent;
+  padding: 0;
+  border: none;
+}
+
+.sort-select {
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.05);
+  min-width: 180px;
+}
+
+.sort-select:focus {
+  outline: none;
+  border-color: #ff4757;
+  box-shadow: 0 0 0 2px rgba(255, 71, 87, 0.2);
+}
+
+.sort-select option {
+  background: #1a1d21;
+  color: #fff;
+  padding: 10px;
+}
+
+/* Content Section */
+.content-section {
+  padding: 0 1rem;
+}
+
+/* Results Info */
+.results-info {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: rgba(28, 30, 34, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+  min-height: 38px;
+}
+
+.results-info .text-muted {
+  color: rgba(255, 255, 255, 0.5) !important;
+  font-size: 0.9rem;
+}
+
+.results-info .badge {
+  font-size: 0.75rem;
+  font-weight: normal;
+  background: rgba(255, 71, 87, 0.15) !important;
+  color: #ff4757;
+  border: 1px solid rgba(255, 71, 87, 0.2);
+}
+
+/* Sort Bar Fixes */
+.sort-bar {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+.sort-select {
+  height: 38px;
+  font-size: 0.9rem;
+  background-color: rgba(28, 30, 34, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 0 2rem 0 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+  .filters-sidebar {
+    margin-bottom: 2rem;
+  }
+  
+  .sort-bar {
+    margin-bottom: 1.5rem;
+  }
+  
+  .sort-select {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-img-wrapper {
+    height: 200px;
+  }
+  
+  .escort-card .card-body {
+    padding: 0.75rem;
+  }
+  
+  .card-actions {
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  
+  .contact-btn, .view-profile-btn {
+    width: 100%;
+  }
+}
+
+/* Checkbox Custom Styling */
+.filter-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  accent-color: #ff4757;
+}
+
+/* Animation for filter groups */
+.filter-group {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Physical Details */
+.physical-details {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Languages */
+.languages {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Escort Details */
+.escort-details {
+  font-size: 0.85rem; /* Slightly smaller font */
+  margin-bottom: 0.5rem;
+}
+
+.escort-details .text-muted {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Card Actions */
+.card-actions {
+  margin-top: auto;
+  display: flex;
+  gap: 0.5rem;
+  align-items: stretch;
+}
+
+/* Rating Display */
+.rating-display {
+  background: rgba(255, 193, 7, 0.1);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+/* Services Tags Container */
+.services-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin: 0.25rem 0;
+}
+
+/* Badge Styling */
+.verified-badge {
+  font-size: 0.65rem;
+  padding: 0.15rem 0.4rem;
+  background: linear-gradient(45deg, #00d2ff, #3a7bd5);
+}
+
+.service-badge {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.service-badge:hover {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Price Tag */
+.price-tag {
+  background: rgba(255, 71, 87, 0.1);
+  padding: 0.2rem 0.5rem;
+  margin: 0.25rem 0;
+  border-radius: 5px;
+  display: inline-block;
 }
