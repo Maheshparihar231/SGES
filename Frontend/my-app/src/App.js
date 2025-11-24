@@ -11,7 +11,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import Header from './components/Header';
 import Footer from './components/Footer';
-
+import Loader from './components/Loader';
 // Wrapped component for animations
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -34,6 +34,7 @@ const AnimatedRoutes = () => {
           <Route path="/profile/:id" element={<Profile />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/loader" element={<Loader />} />
         </Routes>
       </motion.main>
     </AnimatePresence>
