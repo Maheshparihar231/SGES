@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Card, Badge, Form } from 'react-bootstrap';
 import randi from '../data/randis.ts';
+import { Link } from 'react-router-dom';
 import { FaMapMarkerAlt, FaHeart, FaStar, FaFilter, FaSort, FaCheck } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import '../styles/Services.css';
@@ -420,67 +421,21 @@ function Services() {
                               </Badge>
                             )}
                           </Card.Title>
-                          <div className="d-flex align-items-center">
-                            <FaStar className="text-warning me-1" />
-                            <span>{getDisplayValue(randi.rating)}</span>
-                          </div>
                         </div>
 
+                        {/* Minimal information for list view: location and age */}
                         <div className="escort-details mb-3">
                           <div className="d-flex align-items-center mb-2">
                             <FaMapMarkerAlt className="text-danger me-2" />
-                            <span>{getDisplayValue(randi.location)}</span>
+                            <span className="fw-semibold">{getDisplayValue(randi.location)}</span>
                             {randi.distance && (
                               <span className="ms-2 text-muted">({randi.distance}km)</span>
                             )}
                           </div>
-                          
+
                           <div className="d-flex align-items-center mb-2">
                             <span className="me-2">Age:</span>
                             <span className="text-light">{getDisplayValue(randi.age)}</span>
-                            <span className="ms-2 text-muted">| {getDisplayValue(randi.nationality)}</span>
-                          </div>
-
-                          <div className="physical-details mb-2 small">
-                            <span>{getDisplayValue(randi.height)}</span>
-                            <span className="ms-2 text-muted">{getDisplayValue(randi.measurements)}</span>
-                          </div>
-
-                          <div className="price-tag mb-2">
-                            <span className="fs-5 text-danger fw-bold">
-                              {getDisplayValue(randi.price, 'price')}
-                            </span>
-                            {randi.price && <span className="text-muted ms-1">/hour</span>}
-                          </div>
-
-                          <div className="services-tags mb-2">
-                            {randi.services && randi.services.length > 0 ? (
-                              <>
-                                {randi.services.slice(0, 3).map((service, index) => (
-                                  <Badge 
-                                    key={index}
-                                    bg="dark" 
-                                    className="me-1 mb-1 service-badge"
-                                  >
-                                    {service}
-                                  </Badge>
-                                ))}
-                                {randi.services.length > 3 && (
-                                  <Badge 
-                                    bg="dark" 
-                                    className="me-1 mb-1 service-badge"
-                                  >
-                                    +{randi.services.length - 3}
-                                  </Badge>
-                                )}
-                              </>
-                            ) : (
-                              <span className="text-muted small">Services Not Provided</span>
-                            )}
-                          </div>
-
-                          <div className="languages small text-muted mb-2">
-                            Languages: {getDisplayValue(randi.languages, 'array')}
                           </div>
                         </div>
 
@@ -488,9 +443,13 @@ function Services() {
                           <button className="contact-btn flex-grow-1">
                             Contact
                           </button>
-                          <button className="view-profile-btn">
+                          <Link
+                            to={`/profile/${randi.id}`}
+                            className="view-profile-btn"
+                            style={{ textDecoration: 'none' }}
+                          >
                             View
-                          </button>
+                          </Link>
                         </div>
                       </Card.Body>
                     </Card>
