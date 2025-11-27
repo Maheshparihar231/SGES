@@ -3,7 +3,6 @@ import { Container, Row, Col, Card, Badge, Form } from 'react-bootstrap';
 import randi from '../data/randis.ts';
 import { Link } from 'react-router-dom';
 import { FaMapMarkerAlt, FaHeart, FaStar, FaFilter, FaSort, FaCheck } from 'react-icons/fa';
-import { motion, AnimatePresence } from 'framer-motion';
 import '../styles/Services.css';
 
 function Services() {
